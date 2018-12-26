@@ -1,0 +1,28 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-console": 1,
+    "comma-dangle": [
+      "warn",
+      "always-multiline"
+    ],
+    "semi": [
+      2,
+      "always"
+    ],
+    "max-len": [
+      2,
+      120,
+      {
+        "ignoreUrls": true
+      }
+    ]
+  },
+  "extends": [
+    "standard",
+    "eslint:recommended"
+  ]
+}

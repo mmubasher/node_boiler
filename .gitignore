@@ -1,0 +1,15 @@
+# Logs
+logs
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env
+
+# webstorm editor config
+.idea/
+
+npm-debug.log
+
+build/
+/uploads/
