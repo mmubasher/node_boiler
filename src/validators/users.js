@@ -1,6 +1,6 @@
 'use strict';
 
-const joi = require('joi');
+const joi = require('@hapi/joi');
 const statuses = require('../../constants/statuses');
 
 const listing = joi.object({

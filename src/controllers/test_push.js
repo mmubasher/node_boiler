@@ -3,7 +3,7 @@
 const push = require('../utils/push/index');
 const responseCodes = require('../../constants/response_codes');
 const statusCodes = require('http-status-codes');
-const joi = require('joi');
+const joi = require('@hapi/joi');
 
 const send = {
   description: 'Test Push Notification',
@@ -18,14 +18,13 @@ const send = {
       (e, res) => {
         if (e) {
           request.log(['error'], e, new Date());
-          reply({
+          return {
             'success': false,
             'statusCode': responseCodes.FAILED,
             'message': e.message,
-          }).code(statusCodes.INTERNAL_SERVER_ERROR);
-          return;
+          };
         }
-        reply(res);
+        return res;
       });
   },
   validate: {
@@ -34,11 +33,11 @@ const send = {
       device_type: joi.string().valid('android', 'apple').required(),
     }),
     failAction: (request, reply, source, err) => {
-      reply({
+      return {
         'success': false,
         'statusCode': responseCodes.INVALID_PARAMETERS,
         'message': err.message.replace(/[^a-zA-Z ]/g, ''),
-      });
+      };
     },
   },
   plugins: {

@@ -23,11 +23,11 @@ const s3 = {
   validate: {
     payload: validate.file,
     failAction: (request, reply, source, err) => {
-      reply({
+      return {
         'success': false,
         'statusCode': responseCodes.INVALID_PARAMETERS,
         'message': err.message.replace(/[^a-zA-Z ]/g, ''),
-      }).code(statusCodes.BAD_REQUEST);
+      };
     },
   },
   plugins: {
@@ -40,20 +40,18 @@ const s3 = {
       (err, uploads) => {
         if (err) {
           request.log(['error'], err, new Date());
-          reply({
+          return {
             'success': false,
             'statusCode': responseCodes.FAILED,
             'message': err.message,
-          }).code(statusCodes.INTERNAL_SERVER_ERROR);
-          return;
-
+          };
         }
-        reply({
+        return {
           'success': true,
           'statusCode': responseCodes.OK,
           'data': uploads,
           'message': responseCodes.getStatusText(responseCodes.OK),
-        });
+        };
       });
   },
 };
@@ -72,11 +70,11 @@ const local = {
   validate: {
     payload: validate.file,
     failAction: (request, reply, source, err) => {
-      reply({
+      return {
         'success': false,
         'statusCode': responseCodes.INVALID_PARAMETERS,
         'message': err.message.replace(/[^a-zA-Z ]/g, ''),
-      }).code(statusCodes.BAD_REQUEST);
+      };
     },
   },
   plugins: {
@@ -89,20 +87,18 @@ const local = {
       (err, uploads) => {
         if (err) {
           request.log(['error'], err, new Date());
-          reply({
+          return {
             'success': false,
             'statusCode': responseCodes.FAILED,
             'message': err.message,
-          }).code(statusCodes.INTERNAL_SERVER_ERROR);
-          return;
-
+          };
         }
-        reply({
+        return {
           'success': true,
           'statusCode': responseCodes.OK,
           'data': uploads,
           'message': responseCodes.getStatusText(responseCodes.OK),
-        });
+        };
       });
   },
 };

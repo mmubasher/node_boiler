@@ -22,32 +22,25 @@ module.exports = {
         } else {
           switch (webhookNotification.kind) {
             case braintree.WebhookNotification.Kind.SubMerchantAccountApproved:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
             case braintree.WebhookNotification.Kind.SubMerchantAccountDeclined:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
             case braintree.WebhookNotification.Kind.DisbursementException:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
             case braintree.WebhookNotification.Kind.Disbursement:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
             case braintree.WebhookNotification.Kind.TransactionSettled:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
             case braintree.WebhookNotification.Kind.TransactionSettlementDeclined:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
             default:
-              // do something to your entities here
-              reply();
+              // do something here
               break;
           }
         }

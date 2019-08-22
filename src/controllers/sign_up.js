@@ -19,14 +19,13 @@ const action = {
       (err, result) => {
         if (err) {
           request.log(['error'], err, new Date());
-          reply({
+          return {
             'success': false,
             'statusCode': responseCodes.FAILED,
             'message': err.message,
-          }).code(statusCodes.INTERNAL_SERVER_ERROR);
-          return;
+          };
         }
-        return reply(result);
+        return result;
       });
   },
   plugins: {

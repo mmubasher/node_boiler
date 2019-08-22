@@ -26,11 +26,8 @@ module.exports = [
       notes: 'Hapi Boiler Backend API ',
       tags: ['api', 'base'],
       auth: false,
-      handler: function (request, reply) {
-        reply({
-          'statusCode': statusCodes.OK,
-          'message': `Hapi Boiler backend ${config.environment} server api `,
-        });
+      handler: async function (request, reply) {
+        return reply.redirect('/documentation');
       },
     },
   },

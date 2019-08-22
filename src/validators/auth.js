@@ -1,6 +1,6 @@
 'use strict';
 
-const joi = require('joi');
+const joi = require('@hapi/joi');
 
 const login = joi.object({
   email_address: joi.string().email().required(),
