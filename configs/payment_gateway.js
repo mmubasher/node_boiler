@@ -7,13 +7,16 @@ const publicKey = config.braintree.publicKey;
 const privateKey = config.braintree.privateKey;
 const merchantId = config.braintree.merchantId;
 const env = config.braintree.environment;
+let gateway = null;
 
-const gateway = braintree.connect({
-  environment: env === 'production' ? braintree.Environment.Production
-    : braintree.Environment.Sandbox,
-  merchantId: merchantId,
-  publicKey: publicKey,
-  privateKey: privateKey,
-});
+if (publicKey && privateKey && merchantId) {
+   gateway = braintree.connect({
+    environment: env === 'production' ? braintree.Environment.Production
+      : braintree.Environment.Sandbox,
+    merchantId: merchantId,
+    publicKey: publicKey,
+    privateKey: privateKey,
+  });
+}
 
 module.exports = gateway;
