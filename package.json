@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/citrusbits/backend-hapi-boiler.git"
+    "url": "git+https://github.com/mmubasher/node_boiler.git"
   },
   "keywords": [
     "boiler plate",
@@ -19,9 +19,9 @@
   "author": "mmubasher",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/citrusbits/backend-hapi-boiler/issues"
+    "url": "https://github.com/mmubasher/node_boiler/issues"
   },
-  "homepage": "https://github.com/citrusbits/backend-hapi-boiler#readme",
+  "homepage": "https://github.com/mmubasher/node_boiler#readme",
   "dependencies": {
     "@hapi/good": "^8.2.1",
     "@hapi/good-console": "^8.1.1",
